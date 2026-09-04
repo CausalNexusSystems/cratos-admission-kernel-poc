@@ -1,0 +1,6 @@
+run_id: CRATOS_ARP_20260904T014323Z
+cratos_core_version: 0.6.0
+harness_version: 0.6.0
+prng_seed: 15327311776980999071
+prng_seed_scope: This seed exists ONLY in the test harness and is NEVER passed to the CRATOS kernel. It decides which randomized adversarial and declared-boundary-pressure inputs phases 8-17 generate this run (which magnitude, which lane, which technique, against which sector or instance) -- it does not touch the kernel's own decision logic in any way. The CRATOS kernel (`cratos/src/`) contains zero randomness of any kind: its admit/reject function is a deterministic pure function of kernel state plus signed input, identical on every machine, every time. Phases 0-7 use fixed, hardcoded inputs with no PRNG involved at all, and are the direct proof of that determinism. Randomizing which inputs get tried (phases 8-17) is the same technique used in any fuzzer or property-based test: it varies the test cases, never the system under test's own logic.
+merkle_root: 70eb073818483560c0f282e2a018c3b65f1b7e75ba2eeb09e2c6949af3dac0d2
